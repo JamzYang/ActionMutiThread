@@ -4,15 +4,17 @@ package cheapter2;
  * @author yang
  * Date 2020/4/9 22:33
  */
-public class AccountingVol implements Runnable {
-    static AccountingVol instance = new AccountingVol();
+public class AccountingVol2 implements Runnable {
+    static AccountingVol2 instance = new AccountingVol2();
     static volatile int j = 0;
-    public  synchronized void  increase(){
-        j++;
-    }
+//    public  synchronized void  increase(){
+//        j++;
+//    }
     public void run() {
-        for (int i = 0; i < 100; i++) {
-            increase();
+        for (int i = 0; i < 1000; i++) {
+            synchronized (instance){
+                j++;
+            }
         }
     }
 
