@@ -1,4 +1,4 @@
-package cheapter2;
+package chapter2;
 
 /**
  * @author yang
