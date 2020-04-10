@@ -12,16 +12,18 @@ public class AccountingVol3 implements Runnable {
         j++;
     }
     public void run() {
-        for (int i = 0; i < 1000; i++) {
+        for (int i = 0; i < 100000000; i++) {
             increase();
         }
     }
 
-    synchronized
+
 
     public static void main(String[] args) throws InterruptedException {
         Thread t1 = new Thread(new AccountingVol3());
+        t1.setName("t1");
         Thread t2 = new Thread(new AccountingVol3());
+        t2.setName("t2");
         t1.start();
         t2.start();
         t1.join();
