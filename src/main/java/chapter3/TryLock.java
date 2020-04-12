@@ -17,9 +17,9 @@ public class TryLock implements Runnable {
             }else{
                 System.out.println(name+"没获取到锁...");
             }
-
         }
     }
+
 
     public static void main(String[] args) {
         Thread t1 = new Thread(new TryLock(),"t1");
