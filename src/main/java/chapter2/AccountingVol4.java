@@ -18,7 +18,6 @@ public class AccountingVol4 implements Runnable {
         System.out.println(Thread.currentThread().getName()+" is end.\t"+j);
     }
 
-    synchronized
 
     public static void main(String[] args) throws InterruptedException {
         Thread t1 = new Thread(instance);

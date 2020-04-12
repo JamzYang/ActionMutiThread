@@ -18,7 +18,6 @@ public class AccountingVol2 implements Runnable {
         }
     }
 
-    synchronized
 
     public static void main(String[] args) throws InterruptedException {
         Thread t1 = new Thread(instance);
