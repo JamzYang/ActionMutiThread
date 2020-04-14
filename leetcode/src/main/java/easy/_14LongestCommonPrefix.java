@@ -6,33 +6,26 @@ package easy;
  */
 public class _14LongestCommonPrefix {
     public static void main(String[] args) {
-        String[] strs = {"flo", "flow","flow"};
+//        String[] strs = {"flower", "fl","flow"};
+//        String[] strs = {"aa", "a"};
+        String[] strs = {"aba","c","b","a","ab"};
         String s = solution1(strs);
         System.out.println(s);
     }
-
+    //TODO 没通过部分测试
     public static String solution1(String[] strs) {
+        if(strs.length == 0) return "";
         String e1 = strs[0];
-        int maxIndex = -1;
-        for (int j = 1; j <= e1.length(); j++) {
-            String prefix = e1.substring(0, j);
-            boolean hasFlag = true;
-            for (int i = 1; i < strs.length; i++) {
-                if(strs[i].length() < j || !prefix.equals(strs[i].substring(0,j))){
-                    hasFlag = false;
+        String result=e1;
+        for (int i = 0; i < strs.length; i++) {
+            for (int j = 0; j < e1.length(); j++) {
+                if((strs[i].length() > j && strs[i].charAt(j) != e1.charAt(j))
+                    || strs[i].length() <=j ){
+                    result = e1.substring(0,j);
                     break;
                 }
             }
-            if(!hasFlag){
-                maxIndex = j -1;
-                break;
-            }
         }
-
-        if(maxIndex < 0){
-            return "";
-        }else {
-            return e1.substring(0, maxIndex);
-        }
+        return result;
     }
 }
